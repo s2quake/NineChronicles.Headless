@@ -413,11 +413,11 @@ namespace NineChronicles.Headless.Executable.Commands
                     var stateRootHash = HashDigest<SHA256>.FromString(block!.StateRootHash!);
                     var privateKey = new PrivateKey();
                     var blockMetadata = new BlockMetadata(
-                        0, DateTimeOffset.Now, privateKey.PublicKey, null, null, null);
+                        0, DateTimeOffset.Now, privateKey.PublicKey, null, null, null, null);
                     var blockContent = new BlockContent(blockMetadata);
                     var preEvaluationBlock = blockContent.Propose();
                     var b = preEvaluationBlock.Sign(privateKey, stateRootHash);
-                    return new BlockDigest(b.Header, ImmutableArray<ImmutableArray<byte>>.Empty);
+                    return new BlockDigest(b.Header, ImmutableArray<ImmutableArray<byte>>.Empty, ImmutableArray<ImmutableArray<byte>>.Empty);
                 }
             };
 

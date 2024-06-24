@@ -9,6 +9,7 @@ using Libplanet.Crypto;
 using Libplanet.Action;
 using Libplanet.Action.State;
 using Libplanet.Types.Tx;
+using Libplanet.Types.Evidences;
 using Serilog;
 
 namespace NineChronicles.Headless.Executable.Commands
@@ -60,6 +61,8 @@ namespace NineChronicles.Headless.Executable.Commands
 
             // NOTE: Replay does not support block actions.
             public IReadOnlyList<ITransaction> Txs => ImmutableList<ITransaction>.Empty;
+
+            public IReadOnlyList<Evidence> Evidences => ImmutableList<Evidence>.Empty;
 
             public void UseGas(long gas)
             {
